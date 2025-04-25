@@ -1,109 +1,109 @@
 
-🧭 Guía Definitiva para Crear y Subir Repositorios con Git y GitHub (Python + WSL)
-✅ Objetivo
-Ignorar archivos sensibles como .env
+# 🧭 Ultimate Guide to Create and Upload Repositories with Git and GitHub (Python + WSL)
+✅ Objective
+Ignore sensitive files like .env
 
-Trackear requirements.txt con las dependencias del proyecto
+Track requirements.txt with project dependencies
 
-Crear el repo desde local y subirlo limpio a GitHub (público o privado)
+Create the repo from local and upload it clean to GitHub (public or private)
 
-Usar rama main desde el principio
+Use the main branch from the start
 
-Compatible con WSL y entorno Python
+Compatible with WSL and Python environment
 
-🔧 Paso a paso: Crear un proyecto local con Git y Python
-1. Crear el directorio del proyecto
+## 📜 Essential Git Commands
 ```bash
-mkdir mi-proyecto
-cd mi-proyecto
+git status              # View changes
+git add file.py         # Add specific file
+git commit -m "message"
+git push                # Upload changes
+git pull                # Fetch changes from remote
 ```
-2. Crear y activar un entorno virtual
+
+## 🔧 Step by Step: Create a Local Project with Git and Python
+1. Create the project directory
+```bash
+mkdir my-project
+cd my-project
+```
+2. Create and activate a virtual environment
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
-3. Instalar dependencias y generar requirements.txt
+3. Install dependencies and generate requirements.txt
 ```bash
 pip install requests beautifulsoup4
 pip freeze > requirements.txt
 ```
-4. Crear el archivo .gitignore
+4. Create the .gitignore file
 ```bash
 nano .gitignore
 ```
-📄 Contenido recomendado:
+## 📄 Recommended content:
 
 ```gitignore
-# Entorno virtual
+# Virtual environment
 venv/
 
-# Variables de entorno
+# Environment variables
 .env
 
-# Cachés y archivos compilados
+# Caches and compiled files
 __pycache__/
 *.pyc
 ```
 
-5. Inicializar el repositorio con rama main
+5. Initialize the repository with the main branch
 ```bash
 git init -b main
 ```
 
-6. Añadir y commitear los archivos
+6. Add and commit the files
 ```bash
 git add .
-git commit -m "Primer commit limpio con .gitignore y requirements"
+git commit -m "First clean commit with .gitignore and requirements"
 ```
 
-❗ ¿Ya habías subido archivos que ahora están en .gitignore?
+## ❗ Did you already upload files that are now in .gitignore?
 ```bash
 git rm --cached -r .
 git add .
-git commit -m "Aplico .gitignore y limpio archivos ignorados"
+git commit -m "Apply .gitignore and clean ignored files"
 ```
-Esto no borra archivos del disco, solo del seguimiento de Git.
+This does not delete files from the disk, just from Git's tracking.
 
-7. Crear y subir el repositorio a GitHub
-Si usás GitHub CLI (recomendado):
+7. Create and upload the repository to GitHub
+If you use GitHub CLI (recommended):
 ```bash
-gh repo create mi-proyecto --private --source=. --remote=origin --push
+gh repo create my-project --private --source=. --remote=origin --push
 ```
-✅ Esto crea el repo, lo vincula y sube tu código.
+## ✅ This creates the repo, links it, and uploads your code.
 
-🧠 Tips útiles
-Cambiar la rama por defecto a main globalmente (una vez):
+## 🧠 Useful Tips
+Change the default branch to main globally (once):
 ```bash
 git config --global init.defaultBranch main
 ```
 
-Actualizar requirements.txt tras instalar nuevas dependencias:
+Update requirements.txt after installing new dependencies:
 ```bash
 pip freeze > requirements.txt
 ```
 
-📦 Archivos clave que sí deben estar en tu repositorio
+## 📦 Key files that should be in your repository
 - requirements.txt
-- Tu código fuente (.py, .ipynb, etc.)
-- Archivos .md, documentación, scripts
+- Your source code (.py, .ipynb, etc.)
+- .md files, documentation, scripts
 
-🔒 Archivos que NO deben subirse (y deben estar en .gitignore)
+## 🔒 Files that should NOT be uploaded (and should be in .gitignore)
 - .env
 - venv/
-- .DS_Store, *.log, archivos temporales
+- .DS_Store, *.log, temporary files
 
-📜 Comandos Git esenciales
+## 🧾 History and Branches
 ```bash
-git status              # Ver cambios
-git add archivo.py      # Añadir archivo específico
-git commit -m "mensaje"
-git push                # Subir cambios
-git pull                # Traer cambios del remoto
-```
-
-🧾 Historial y ramas
-```bash
-git log                 # Ver historial de commits
-git branch              # Ver ramas locales
-git switch main         # Cambiar a otra rama
+git log                 # View commit history
+git branch              # View local branches
+git switch main         # Switch to another branch
 ```
